@@ -1,0 +1,17 @@
+{
+  "name": "gc-web-modules",
+  "version": "1.0.0",
+  "description": "Modulos do GC WEB",
+  "main": "index.js",
+  "dependencies": {
+    "angular": "^1.6.3"
+  },
+  "devDependencies": {
+    "webpack": "^2.2.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Guilherme Mendes",
+  "license": "ISC"
+}
