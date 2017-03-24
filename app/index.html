@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Survivor Exchange</title>
+
+</head>
+<body>
+
+<div class="splash" ng-cloak></div>
+
+<div id="wrap" ng-cloak>
+    <div class="container">
+        <h2 class="page-header" ng-if="title">TWD SURVIVOR | {{title}}</h2>       
+        <ui-view></ui-view>
+    </div>
+</div>
+
+<div id="footer" ng-cloak>&copy; Codiminer 2016</div>
+
+<script type="text/javascript" src="index.bundle.js"></script>
+
+</body>
+</html>
