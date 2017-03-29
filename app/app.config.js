@@ -6,7 +6,7 @@ AppRoute.$inject = ['$stateProvider', '$urlRouterProvider','$httpProvider'];
 /* @ngInject */
 function AppRoute($stateProvider, $urlRouterProvider, $httpProvider) {
     
-    $urlRouterProvider.otherwise('/home');
+    //$urlRouterProvider.otherwise('/home');
     
     /*
     $routeProvider.when('/', {

@@ -17,7 +17,7 @@ require('./app.config');
 require('./app.run');
 //require('./alertify.config');
 
-//require('./services/http.factory');
+require('./services/http.factory');
 //require('./components/somente-numeros.directive');
 
 
