@@ -2,9 +2,9 @@
 
 angular.module('app.membro').controller('MembroController', PeopleController);
 
-PeopleController.$inject = ['$scope', '$state', '$location', '$http', '$timeout', '$log', 'PeopleService', 'AuthService', 'uiGmapGoogleMapApi', '$ngBootbox'];
+PeopleController.$inject = ['$scope', '$state', '$location', '$http', '$timeout', '$log', 'MembroService'];
 /* @ngInject */
-function PeopleController($scope, $state, $location, $http, $timeout, $log, People, Auth, uiGmapGoogleMapApi, $ngBootbox) {
+function PeopleController($scope, $state, $location, $http, $timeout, $log, Membro) {
 
     $scope.membro = {
         name: "",
@@ -26,19 +26,16 @@ function PeopleController($scope, $state, $location, $http, $timeout, $log, Peop
 
         $scope.person.items = items;
 
-        People.save($scope.person).then(function (data) {
+        Membro.inserir($scope.person).then(function (data) {
 
             if (!data.message) {
 
-                Auth.setAuth(data);
-                
-                $window.location.reload();
             }
         });
     };
 
 
-    Membro.getAll().then(function (membros) {
+    Membro.obterTodos().then(function (membros) {
         $scope.membros = membros;
     });
  

@@ -1,27 +1,27 @@
 'use strict';
 
-angular.module('app.people').config(PeopleRoute);
+angular.module('app.membro').config(MembroRoute);
 
-PeopleRoute.$inject = ['$stateProvider'];
+MembroRoute.$inject = ['$stateProvider'];
 /* @ngInject */
-function PeopleRoute($stateProvider) {
+function MembroRoute($stateProvider) {
 
-    $stateProvider.state('people/new',{
-        name: '/people/new',
-        controller: 'PeopleController',
-        templateUrl: 'people/people.html',
+    $stateProvider.state('membro/novo',{
+        name: '/membro/novo',
+        controller: 'MembroController',
+        templateUrl: 'membro/membro.html',
         title: 'Register people'
         
-    }).state('people.edit', {
-        url: '/people/:id',
-        controller: 'PeopleController',
-        templateUrl: 'people/people.html',
+    }).state('membro.editar', {
+        url: '/membro/:id',
+        controller: 'MembroController',
+        templateUrl: 'membro/membro.html',
         title: 'Edit people'
         
-    }).state('people-report-infected',{
-        url: '/people/people-report-infected',
-        controller: 'PeopleController',
-        templateUrl: 'people/people-report-infected.html',
+    }).state('membro',{
+        url: '/membro/membro',
+        controller: 'MembroController',
+        templateUrl: 'membro/membro.html',
         title: 'Report Infection'
     });
 }

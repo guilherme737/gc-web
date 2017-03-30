@@ -32,7 +32,7 @@ require('angular-local-storage');
 // angular
 //require('./auth/auth.module');
 //require('./home/home.module');
-//require('./people/people.module');
+require('./membro/membro.module');
 //require('./exchange/exchange.module');
 
 require('./app.module');

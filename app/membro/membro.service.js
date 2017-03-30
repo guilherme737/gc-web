@@ -1,43 +1,37 @@
 'use strict';
 
-angular.module('app.people').factory('PeopleService', PeopleService);
+angular.module('app.membro').factory('MembroService', MembroService);
 
-PeopleService.$inject = ['$http', '$rootScope', 'localStorageService'];
+MembroService.$inject = ['$http', '$rootScope', 'localStorageService'];
 /* @ngInject */
-function PeopleService($http, $rootScope, localStorageService) {
+function MembroService($http, $rootScope, localStorageService) {
 
     var service = {
 
-        save: save,
-        getAll: getAll,
-        getPeopleById: getPeopleById,
-        setInfected: setInfected
+        inserir: inserir,
+        obterTodos: obterTodos,
+        obterPorId: obterPorId       
 
     };
 
-    function save(person) {
+    function inserir(membro) {
 
-        return $http.post('http://zssn-backend-example.herokuapp.com/api/people', person).then(handleSuccess, handleError('Error creating user'));
+        return $http.post('http://zssn-backend-example.herokuapp.com/api/people', membro).then(handleSuccess, handleError('Error creating user'));
     }
 
-    function getAll() {
+    function obterTodos() {
 
         return $http.get('http://zssn-backend-example.herokuapp.com/api/people.json').then(handleSuccess, handleError('Error getting all persons'));
     }
 
-    function getPeopleById(id) {
+    function obterPorId(id) {
 
         return $http.get('http://zssn-backend-example.herokuapp.com/api/people/' + id).then(handleSuccess, handleError('Error getting user by id'));
     }
 
-    function setInfected(infected) {
+    function atualizar(membro) {
 
-        return $http.post('http://zssn-backend-example.herokuapp.com/api/people/' + localStorageService.get('user').id + '/report_infection', {infected: infected, id: $rootScope.personId}).then(handleSuccess, handleError('Error while reporting infection.'));
-    }
-
-    function updatePeople(user) {
-
-        return $http.patch('http://zssn-backend-example.herokuapp.com/api/people/' + user.id,
+        return $http.patch('http://zssn-backend-example.herokuapp.com/api/people/' + membro.id,
                 {
                     name: user.nome,
                     age: user.age,

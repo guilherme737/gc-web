@@ -1,9 +1,9 @@
 'use strict';
 
-angular.module('app.people', [
-    'ngResource'
+angular.module('app.membro', [
+    
 ]);
 
-require('./people.service');
-require('./people.controller');
-require('./people.routes');
+require('./membro.service');
+require('./membro.controller');
+require('./membro.routes');
