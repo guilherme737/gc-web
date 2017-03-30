@@ -2,31 +2,23 @@
 
 angular.module('app.membro').controller('MembroController', PeopleController);
 
-PeopleController.$inject = ['$scope', '$state', '$location', '$http', '$timeout', '$log', 'MembroService'];
+MembroController.$inject = ['$scope', '$state', '$location', '$http', '$timeout', '$log', 'MembroService'];
 /* @ngInject */
-function PeopleController($scope, $state, $location, $http, $timeout, $log, Membro) {
+function MembroController($scope, $state, $location, $http, $timeout, $log, Membro) {
 
     $scope.membro = {
-        name: "",
-        age: 0,
-        gender: "",
-        lonlat: null,
-        items: ""
+        nome: "",
+        dataNascimento: 0,
+        telefone: null,
+        email: null,        
     }
 
 
 
-    $scope.save = function () {
+    $scope.salvar = function () {
 
-        var items = "";
 
-        angular.forEach($scope.items, function (value, key) {
-            items += value.name + ":" + value.count + ";";
-        });
-
-        $scope.person.items = items;
-
-        Membro.inserir($scope.person).then(function (data) {
+        Membro.inserir($scope.membro).then(function (data) {
 
             if (!data.message) {
 
