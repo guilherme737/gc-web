@@ -1,0 +1,51 @@
+<fieldset>
+    <legend>Filtros</legend>
+
+    <div class="row">
+
+        <div class="col-md-12 form-group">
+            <label >Nome</label>
+            <div class="form-inline">            
+                <input type="text" class="form-control" ng-model="filtro.nomeResponsavel" maxlength="150"/>
+                <button class="btn btn-primary" type="button" ng-click="consultar()">Consultar</button>
+            </div>            
+
+        </div>
+
+    </div>
+</fieldset>
+
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th width="44%">Nome</th>
+                <th width="10%">Data de Nasc.</th>
+                <th width="10%">Telefone</th>                
+                <th colspan="2" width="10%">Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="membro in membros">
+                <td>{{ membro.nome}}</td>
+                <td>{{ membro.dataNascimento | date: 'dd/MM/yyyy' }}</td>                
+                <td>{{ membro.celular}}</td>                
+                <td>
+                    <a href="#/membro/{{membro.id}}" class="text-info">
+                        <span class="glyphicon glyphicon-pencil"></span> Editar
+                    </a>
+                </td>
+                <td>
+                    <a href="#" class="text-danger" ng-click="delete(membro)">
+                        <span class="glyphicon glyphicon-pencil"></span> Excluir
+                    </a>                    
+                </td>
+            </tr>
+            <tr ng-if="!membro.length">
+                <td colspan="9">
+                    <span>Nenhum registro encontrado!</span>
+                </td>
+            </tr>
+        </tbody>        
+    </table>
+</div>

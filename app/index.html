@@ -7,7 +7,8 @@
 
         <title>GC WEB</title>
 
-        <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css"/>  
+        <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css"/>
+        <link rel="stylesheet" href="css/app.css"/>
     </head>
     <body>
 
@@ -46,7 +47,7 @@
                         </li>
                         <li><a href="#about">About</a></li>
                         <li><a href="#contact">Gráficos</a></li>
-                        
+
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="../navbar/">Default</a></li>
@@ -56,23 +57,22 @@
                 </div><!--/.nav-collapse -->
             </div>
         </nav> 
-        
-        <br/><br/>
-        
+
+        <div class="container">                
+            <ui-view></ui-view>
+        </div>
 
         <div class="splash" ng-cloak></div>
 
         <div id="wrap" ng-cloak>
-            <div class="container">                
-                <ui-view></ui-view>
+
+        </div>
+
+        <footer class="footer">
+            <div class="container">
+                <p class="text-muted" ng-cloak>&copy; Guiga 2017</p>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12 text-center">
-                <div id="footer" ng-cloak>&copy; Guiga 2017</div>        
-            </div>   
-        </div>
-        
+        </footer>
 
         <script type="text/javascript" src="index.bundle.js"></script>
 

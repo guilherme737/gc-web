@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('app.membro').controller('MembroController', PeopleController);
+angular.module('app.membro').controller('MembroController', MembroController);
 
 MembroController.$inject = ['$scope', '$state', '$location', '$http', '$timeout', '$log', 'MembroService'];
 /* @ngInject */
