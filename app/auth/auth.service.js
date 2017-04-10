@@ -1,32 +1,37 @@
-'use strict';
+(function () {
 
-angular.module('app').factory('AuthService', AuthService);
+    'use strict';
 
-AuthService.$inject = ['$http', 'localStorage', '$q'];
-/* @ngInject */
+    angular.module('app.auth').factory('AuthService', AuthService);
 
-function AuthService ($http, $localStorage, $q) {
-    return {
+    AuthService.$inject = ['$http', 'localStorageService', '$q'];
+    /* @ngInject */
 
-        getToken : function () {
-          return $localStorage.token;
-        },
+    function AuthService($http, $localStorage, $q) {
 
-        setToken: function (token) {
-          $localStorage.token = token;
-        },
+        return {
 
-        signin : function (data) {
-          $http.post('api/signin', data);
-        },
+            getToken: function () {
+                return $localStorage.token;
+            },
 
-        signup : function (data) {
-          $http.post('api/signup', data);
-        },
+            setToken: function (token) {
+                $localStorage.token = token;
+            },
 
-        logout : function (data) {
-          delete $localStorage.token;
-          $q.when();
-        }
-    };
-}
+            signin: function (data) {
+                $http.post('api/signin', data);
+            },
+
+            signup: function (data) {
+                $http.post('api/signup', data);
+            },
+
+            logout: function (data) {
+                delete $localStorage.token;
+                $q.when();
+            }
+        };
+    }
+
+})();

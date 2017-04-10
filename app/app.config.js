@@ -7,27 +7,10 @@ AppRoute.$inject = ['$stateProvider', '$urlRouterProvider','$httpProvider'];
 function AppRoute($stateProvider, $urlRouterProvider, $httpProvider) {
     
     //$urlRouterProvider.otherwise('/home');
-    
-    /*
-    $stateProvider.state('auth', {
-        url: '/auth',
-        controller: 'AuthController'
-    });    
-    */
 
-    /*
-    $routeProvider.when('/', {
-        templateUrl: 'home/home.html',
-        title: 'Home'
-    });
-    $routeProvider.when('/pagenotfound', {
-        templateUrl: 'pagenotfound.html',
-        title: '404'
-    });
-    $routeProvider.otherwise({redirectTo: '/pagenotfound'});
-    */
-
-    $httpProvider.interceptors.push(['$q', 'HttpService', function ($q, HttpService) {
+    $httpProvider.interceptors.push(['$q', 'HttpService', 'localStorageService',
+        function ($q, HttpService, $localStorage) {
+        
         return {
             request: function (config) {
 
@@ -39,11 +22,12 @@ function AppRoute($stateProvider, $urlRouterProvider, $httpProvider) {
                 }
 
                 config.headers = config.headers || {};
-                /*
-                if (AuthService.getToken()) {
+                
+//                if (AuthService.getToken()) {
+                if ($localStorage.token) {    
                     config.headers['Authorization'] = 'Bearer ' + AuthService.getToken();
                 }
-                */
+                
                 HttpService.pushRequest();
 
                 return config;
@@ -74,7 +58,7 @@ function AppRoute($stateProvider, $urlRouterProvider, $httpProvider) {
                     //Flash.create('danger', response.data.messages);
 
                 } else if (response.status === 401 || response.status === 403) {
-                    $location.path('/signin');
+                    //$state.go('/login');
 
                 }
 

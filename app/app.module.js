@@ -7,10 +7,10 @@ angular.module('app', [
     //'ngBootbox',
     //'uiGmapgoogle-maps',    
     'LocalStorageModule',    
-    //'app.auth',
+    'app.auth',
+    'app.login',
     //'app.home',
     'app.membro',
-    //'app.exchange'
 ]);
 
 require('./app.config');

@@ -10,18 +10,21 @@ function MembroRoute($stateProvider) {
         name: '/membro/novo',
         controller: 'MembroController',
         templateUrl: 'membro/membro.html',
+        authorize:true,
         title: 'Register people'
         
     }).state('membro-editar', {
         url: '/membro/:id',
         controller: 'MembroController',
         templateUrl: 'membro/membro.html',
+        authorize:true,
         title: 'Edit people'
         
     }).state('membro', {
         url: '/membro',
         controller: 'MembroController',
         templateUrl: 'membro/membro.lista.html',
+        authorize:true
         
     });
 }

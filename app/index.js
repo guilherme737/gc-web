@@ -30,9 +30,9 @@ require('angular-local-storage');
 //alertify = require('alertifyjs');
 
 // angular
-//require('./auth/auth.module');
+require('./auth/auth.module');
+require('./login/login.module');
 //require('./home/home.module');
 require('./membro/membro.module');
-//require('./exchange/exchange.module');
 
 require('./app.module');
