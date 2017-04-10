@@ -15,6 +15,7 @@ angular.module('app', [
 
 require('./app.config');
 require('./app.run');
+require('./app.constants');
 //require('./alertify.config');
 
 require('./services/http.factory');

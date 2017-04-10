@@ -17,6 +17,6 @@ function LoginRoute($stateProvider) {
             url: '/login',
             templateUrl: 'login/login.html',
             controller: 'LoginController',
-            //controllerAs: 'vm'
+            controllerAs: 'vm'
         });
 }

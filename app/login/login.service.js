@@ -1,11 +1,11 @@
 'use strict';
 
-angular.module('app.auth').factory('AuthService', AuthService);
+angular.module('app.auth').factory('LoginService', LoginService);
 
-AuthService.$inject = ['$http', 'localStorageService', '$q'];
+LoginService.$inject = ['$http', 'localStorageService', '$q', 'GCConstants'];
 /* @ngInject */
 
-function AuthService ($http, $localStorage, $q) {
+function LoginService ($http, $localStorage, $q, GCConstants) {
     return {
 
         getToken : function () {
@@ -16,8 +16,8 @@ function AuthService ($http, $localStorage, $q) {
           $localStorage.token = token;
         },
 
-        signin : function (data) {
-          $http.post('api/signin', data);
+        login : function (data) {
+          $http.post(GCConstants.BASE.API +'login', data);
         },
 
         signup : function (data) {
