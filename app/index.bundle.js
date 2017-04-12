@@ -32481,8 +32481,15 @@ __webpack_require__(0);
         function login() {
             vm.loading = true;
             LoginService.login(vm.username, vm.password, function (result) {
+
+                console.log(result);
+
                 if (result === true) {
-                    $location.path('/');
+                    //$location.path('/');
+
+                    Login.setToken(result.token);
+                    vm.loading = false;
+
                 } else {
                     vm.error = 'Username or password is incorrect';
                     vm.loading = false;

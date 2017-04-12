@@ -19,10 +19,14 @@
         function login() {
             vm.loading = true;
             LoginService.login(vm.username, vm.password, function (result) {
-                if (result === true) {
-                    $location.path('/');
 
-                    Login.setToken(result);
+                console.log(result);
+
+                if (result === true) {
+                    //$location.path('/');
+
+                    Login.setToken(result.token);
+                    vm.loading = false;
 
                 } else {
                     vm.error = 'Username or password is incorrect';
