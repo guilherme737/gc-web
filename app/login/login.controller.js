@@ -18,12 +18,18 @@
 
         function login() {
             vm.loading = true;
-            LoginService.login(vm.username, vm.password, function (result) {
+
+            var credenciais = {
+                usuario : vm.username,
+                senha: vm.password
+            }
+
+            LoginService.login(credenciais).then(function (result) {
 
                 console.log(result);
 
-                if (result === true) {
-                    //$location.path('/');
+                if (result) {
+                    $location.path('/');
 
                     Login.setToken(result.token);
                     vm.loading = false;

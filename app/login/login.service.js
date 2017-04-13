@@ -17,7 +17,14 @@ function LoginService ($http, $localStorage, $q, GCConstants) {
         },
 
         login : function (data) {
-          $http.post(GCConstants.BASE.API +'login', data);
+          //$http.post(GCConstants.BASE.API +'login', data);
+
+          return $http({
+                method : 'POST',
+                url : GCConstants.BASE.API +'login',
+                data: data
+
+            }).then(handleSuccess, handleError('Erro ao efetuar o login. Tente novamente.'));
         },
 
         signup : function (data) {
@@ -29,4 +36,16 @@ function LoginService ($http, $localStorage, $q, GCConstants) {
           $q.when();
         }
     };
+
+    function handleSuccess(res) {
+
+        return res.data;
+    }
+
+    function handleError(error) {
+
+        return function () {
+            return {success: false, message: error};
+        };
+    }
 }
