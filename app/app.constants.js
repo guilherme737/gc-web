@@ -3,7 +3,7 @@
 
 	angular.module('app').constant('GCConstants', {
 		BASE: {
-			API: 'http://localhost/slimrest/'
+			API: 'http://localhost:82/slimrest/'
 		},		
 	});
 })();

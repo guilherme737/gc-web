@@ -1,19 +1,20 @@
 'use strict';
 
-angular.module('app.auth').factory('LoginService', LoginService);
+angular.module('app.login').factory('LoginService', LoginService);
 
 LoginService.$inject = ['$http', 'localStorageService', '$q', 'GCConstants'];
 /* @ngInject */
 
-function LoginService ($http, $localStorage, $q, GCConstants) {
+function LoginService ($http, $localStorageService, $q, GCConstants) {
     return {
 
         getToken : function () {
-          return $localStorage.token;
+          return $localStorageService.get('token');
         },
 
         setToken: function (token) {
-          $localStorage.token = token;
+          //$localStorageService.token = token;
+          $localStorageService.set('token', token);
         },
 
         login : function (data) {
@@ -32,7 +33,7 @@ function LoginService ($http, $localStorage, $q, GCConstants) {
         },
 
         logout : function (data) {
-          delete $localStorage.token;
+          delete $localStorageService.token;
           $q.when();
         }
     };

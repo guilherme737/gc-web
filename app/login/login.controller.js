@@ -31,7 +31,7 @@
                 if (result) {
                     $location.path('/');
 
-                    Login.setToken(result.token);
+                    LoginService.setToken(result.token);
                     vm.loading = false;
 
                 } else {

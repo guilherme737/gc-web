@@ -2,9 +2,9 @@
 
 angular.module('app').run(AppRun);
 
-AppRun.$inject = ['$rootScope', 'HttpService', '$location', '$state', "$stateParams", "AuthService"];
+AppRun.$inject = ['$rootScope', 'HttpService', '$location', '$state', "$stateParams", "LoginService"];
 /* @ngInject */
-function AppRun($rootScope, HttpService, $location, $state, $stateParams, AuthService) {
+function AppRun($rootScope, HttpService, $location, $state, $stateParams, LoginService) {
 
     $rootScope.$state = $state;
 
@@ -24,7 +24,7 @@ function AppRun($rootScope, HttpService, $location, $state, $stateParams, AuthSe
 
         if (toState.authorize) {
 
-            if (!AuthService.getToken()) {
+            if (!LoginService.getToken()) {
                 /* Ugly way
                  event.preventDefault();
                  $location.path('/login');

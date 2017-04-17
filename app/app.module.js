@@ -9,7 +9,7 @@ angular.module('app', [
     'LocalStorageModule',    
     'app.auth',
     'app.login',
-    //'app.home',
+    'app.home',
     'app.membro',
 ]);
 

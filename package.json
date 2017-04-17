@@ -12,6 +12,7 @@
     "lodash": "^4.17.4"
   },
   "devDependencies": {
+    "font-awesome": "^4.7.0",
     "webpack": "^2.2.1"
   },
   "scripts": {

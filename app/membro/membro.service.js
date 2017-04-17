@@ -2,9 +2,9 @@
 
 angular.module('app.membro').factory('MembroService', MembroService);
 
-MembroService.$inject = ['$http', '$rootScope', 'localStorageService'];
+MembroService.$inject = ['$http', '$rootScope', 'localStorageService', 'GCConstants'];
 /* @ngInject */
-function MembroService($http, $rootScope, localStorageService) {
+function MembroService($http, $rootScope, localStorageService, GCConstants) {
 
     var service = {
 
@@ -16,12 +16,15 @@ function MembroService($http, $rootScope, localStorageService) {
 
     function inserir(membro) {
 
-        return $http.post('http://zssn-backend-example.herokuapp.com/api/people', membro).then(handleSuccess, handleError('Error creating user'));
+//        return $http.post('http://zssn-backend-example.herokuapp.com/api/people', membro).then(handleSuccess, handleError('Error creating user'));
+        return $http.post(GCConstants.BASE.API + 'membro', membro).then(handleSuccess, handleError('Error creating user'));
     }
 
     function obterTodos() {
 
-        return $http.get('http://zssn-backend-example.herokuapp.com/api/people.json').then(handleSuccess, handleError('Error getting all persons'));
+//        return $http.get('http://zssn-backend-example.herokuapp.com/api/people.json').then(handleSuccess, handleError('Error getting all persons'));
+
+        return $http.get(GCConstants.BASE.API + 'membro').then(handleSuccess, handleError('Error creating user'));
     }
 
     function obterPorId(id) {
