@@ -21,6 +21,11 @@
         
         $scope.editar = function (id) {
             
+            Membro.obterPorId(id).then(function(data) {
+               
+                $scope.membro = data;
+            });
+            
             $state.go('membro-editar', {"id": id});  
         };
 
@@ -34,6 +39,10 @@
                 }
             });
         };
+        
+        $scope.voltar = function () {
+            $state.go('membro');  
+        }
 
 
         Membro.obterTodos().then(function (membros) {

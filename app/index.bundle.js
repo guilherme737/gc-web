@@ -32650,6 +32650,11 @@ function LoginService ($http, $localStorageService, $q, GCConstants) {
         
         $scope.editar = function (id) {
             
+            Membro.obterPorId(id).then(function(data) {
+               
+                $scope.membro = data;
+            });
+            
             $state.go('membro-editar', {"id": id});  
         };
 
@@ -32663,6 +32668,10 @@ function LoginService ($http, $localStorageService, $q, GCConstants) {
                 }
             });
         };
+        
+        $scope.voltar = function () {
+            $state.go('membro');  
+        }
 
 
         Membro.obterTodos().then(function (membros) {
@@ -32742,7 +32751,8 @@ function MembroService($http, $rootScope, localStorageService, GCConstants) {
 
     function obterPorId(id) {
 
-        return $http.get('http://zssn-backend-example.herokuapp.com/api/people/' + id).then(handleSuccess, handleError('Error getting user by id'));
+//        return $http.get('http://zssn-backend-example.herokuapp.com/api/people/' + id).then(handleSuccess, handleError('Error getting user by id'));
+        return $http.get(GCConstants.BASE.API + 'membro/' + id).then(handleSuccess, handleError('Error getting user by id'));
     }
 
     function atualizar(membro) {

@@ -29,7 +29,8 @@ function MembroService($http, $rootScope, localStorageService, GCConstants) {
 
     function obterPorId(id) {
 
-        return $http.get('http://zssn-backend-example.herokuapp.com/api/people/' + id).then(handleSuccess, handleError('Error getting user by id'));
+//        return $http.get('http://zssn-backend-example.herokuapp.com/api/people/' + id).then(handleSuccess, handleError('Error getting user by id'));
+        return $http.get(GCConstants.BASE.API + 'membro/' + id).then(handleSuccess, handleError('Error getting user by id'));
     }
 
     function atualizar(membro) {

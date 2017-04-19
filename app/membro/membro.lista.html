@@ -38,9 +38,9 @@
                 <td>{{ membro.dataNascimento | date: 'dd/MM/yyyy' }}</td>                
                 <td>{{ membro.celular}}</td>                
                 <td>
-                    <a href="#/membro/{{membro.id}}" class="text-info">
+                    <a href="#" class="text-primary" ng-click="editar(membro.id)">
                         <span class="glyphicon glyphicon-pencil"></span> Editar
-                    </a>
+                    </a>                    
                 </td>
                 <td>
                     <a href="#" class="text-danger" ng-click="delete(membro)">
