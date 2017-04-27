@@ -9,9 +9,10 @@ function MembroService($http, $rootScope, localStorageService, GCConstants) {
     var service = {
 
         inserir: inserir,
+        atualizar : atualizar,
         obterTodos: obterTodos,
-        obterPorId: obterPorId       
-
+        obterPorId: obterPorId,        
+        obterFuncoes: obterFuncoes
     };
 
     function inserir(membro) {
@@ -21,8 +22,6 @@ function MembroService($http, $rootScope, localStorageService, GCConstants) {
     }
 
     function obterTodos() {
-
-//        return $http.get('http://zssn-backend-example.herokuapp.com/api/people.json').then(handleSuccess, handleError('Error getting all persons'));
 
         return $http.get(GCConstants.BASE.API + 'membro').then(handleSuccess, handleError('Error creating user'));
     }
@@ -42,6 +41,11 @@ function MembroService($http, $rootScope, localStorageService, GCConstants) {
                     gender: user.gender,
                     lonlat: user.lonlat
                 }).then(handleSuccess, handleError('Error updating people'));
+    }
+    
+    function obterFuncoes() {
+     
+        return $http.get(GCConstants.BASE.API + 'funcoes').then(handleSuccess, handleError('Erro ao obter funções.'));
     }
 
     function handleSuccess(res) {

@@ -28,8 +28,23 @@
                 <input type="text" class="form-control" ng-model="membro.email" />
             </div>
             <div class="form-group col-md-3 col-xs-12">
-                <label>Telefone</label>
+                <label class="control-label">Telefone</label>
                 <input type="text" class="form-control" ng-model="membro.celular" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <label class="control-label">Função</label>
+                <select ng-model="membro.funcao" class="form-control">
+                    <option ng-repeat="funcao in funcoes" value="{{funcao.id}}">{{funcao.descricao}}</option>
+                </select>                
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-6">
+                <label class="control-label">Dizimista</label>
+                <input type="checkbox" ng-model="membro.dizimista">
             </div>
         </div>
 

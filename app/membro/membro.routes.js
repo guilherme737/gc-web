@@ -8,13 +8,13 @@ function MembroRoute($stateProvider) {
 
     $stateProvider.state('membro-novo',{
         name: '/membro/novo',
-        controller: 'MembroController',
+        controller: 'MembroFormController',
         templateUrl: 'membro/membro.html',
         authorize:true
         
     }).state('membro-editar', {
         url: '/membro/:id',
-        controller: 'MembroController',
+        controller: 'MembroFormController',
         templateUrl: 'membro/membro.html',
         authorize:true
         
