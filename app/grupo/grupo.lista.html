@@ -1,0 +1,58 @@
+<fieldset>
+    <legend>Filtros</legend>
+
+    <div class="row">
+
+        <div class="col-md-6 form-group">
+            <label >Nome</label>
+            <div class="form-inline">            
+                <input type="text" class="form-control" ng-model="filtro.nomeResponsavel" maxlength="150"/>
+                <button class="btn btn-primary" type="button" ng-click="consultar()">Consultar</button>
+            </div>            
+
+        </div>
+        
+        
+
+    </div>
+    <div class="row">
+        <div class="col-md-12 form-group">
+            <button class="btn btn-primary pull-right" type="button" ng-click="novo()"><i class="fa fa-file"></i> Novo</button>
+        </div>        
+    </div>
+</fieldset>
+
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th width="44%">Grupo</th>
+                <th width="10%">L&iacute;der</th>
+                <th width="10%">Bairro</th>                
+                <th colspan="2" width="10%">Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="grupo in grupos">
+                <td>{{ grupo.nome}}</td>
+                <td>{{ grupo.lider.nome}}</td>                
+                <td>{{ grupo.bairro}}</td>                
+                <td>
+                    <a href="#" class="text-primary" ng-click="editar(grupo.id)">
+                        <span class="glyphicon glyphicon-pencil"></span> Editar
+                    </a>                    
+                </td>
+                <td>
+                    <a href="#" class="text-danger" ng-click="delete(grupo)">
+                        <span class="glyphicon glyphicon-pencil"></span> Excluir
+                    </a>                    
+                </td>
+            </tr>
+            <tr ng-if="!grupo.length">
+                <td colspan="9">
+                    <span>Nenhum registro encontrado!</span>
+                </td>
+            </tr>
+        </tbody>        
+    </table>
+</div>

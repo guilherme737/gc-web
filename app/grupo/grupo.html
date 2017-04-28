@@ -1,0 +1,85 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-6">
+                <h1>Cadastro de Célula</h1>
+                <small>Sign in input above or register</small>
+            </div>
+            <br/><br/>
+        </div>
+    </div>
+    <div class="col-md-9">        
+
+        <div class="row">
+            <div class="form-group col-md-9 col-xs-12">
+                <label>Nome</label>
+                <input type="text" class="form-control" ng-model="grupo.nome" maxlength="100"/>
+            </div>
+
+            <div class="form-group col-md-3 col-xs-12">
+                <label>Endereço</label>
+                <input type="text" class="form-control" ng-model="grupo.endereco" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <label class="control-label">UF</label>
+                <select ng-model="grupo.uf" class="form-control">
+                    <option ng-repeat="uf in ufs" value="{{uf.id}}">{{uf.nome}}</option>
+                </select>                
+            </div>
+            <div class="col-md-4">
+                <label class="control-label">Cidade</label>
+                <select ng-model="grupo.cidade" class="form-control">
+                    <option ng-repeat="cidade in cidades" value="{{cidade.id}}">{{cidade.nome}}</option>
+                </select>                
+            </div>
+            <div class="form-group col-md-4 col-xs-12">
+                <label>Bairro</label>
+                <input type="text" class="form-control" ng-model="grupo.bairro" />
+            </div>  
+            <div class="form-group col-md-2 col-xs-12">
+                <label class="control-label">CEP</label>
+                <input type="text" class="form-control" ng-model="grupo.cep" />
+            </div>           
+        </div>
+     
+        <div class="row">            
+             <div class="col-md-2">
+                <label class="control-label">Pastor</label>
+                <select ng-model="grupo.pastor" class="form-control">
+                    <option ng-repeat="pastor in pastores" value="{{pastor.id}}">{{pastor.nome}}</option>
+                </select>                
+            </div>
+            <div class="col-md-2">
+                <label class="control-label">Discipulador</label>
+                <select ng-model="grupo.supervisor" class="form-control">
+                    <option ng-repeat="supervisor in supervisores" value="{{supervisor.id}}">{{supervisor.nome}}</option>
+                </select>                
+            </div>
+            <div class="col-md-2">
+                <label class="control-label">Líder</label>
+                <select ng-model="grupo.lider" class="form-control">
+                    <option ng-repeat="lider in lideres" value="{{lider.id}}">{{lider.nome}}</option>
+                </select>                
+            </div>
+            <div class="col-md-2">
+                <label class="control-label">Dia da Reunião</label>
+                <select ng-model="grupo.diaReuniao" class="form-control">
+                    <option ng-repeat="dia in diasSemana" value="{{dia.id}}">{{dia.nome}}</option>
+                </select>                
+            </div>
+            <div class="form-group col-md-2 col-xs-12">
+                <label class="control-label">Hora da Reuni&atilde;o</label>
+                <input type="text" class="form-control" ng-model="grupo.horaReuniao" />
+            </div>
+        </div>
+
+        <br/>
+        
+    </div>
+    <div class="col-md-2" style="border-left: dashed 1px #cccccc">        
+        <button class="btn btn-primary col-md-12" ng-click="salvar()" >Gravar</button>
+        <button class="btn btn-default col-md-12" ng-click="voltar()" >Voltar</button>
+    </div>
+</div>
