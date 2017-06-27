@@ -34,5 +34,6 @@ require('./auth/auth.module');
 require('./login/login.module');
 require('./home/home.module');
 require('./membro/membro.module');
+require('./celula/celula.module');
 
 require('./app.module');

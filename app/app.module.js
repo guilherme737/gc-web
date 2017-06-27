@@ -11,11 +11,13 @@ angular.module('app', [
     'app.login',
     'app.home',
     'app.membro',
+    'app.celula'
 ]);
 
 require('./app.config');
 require('./app.run');
 require('./app.constants');
+require('./diretivas/convert-to-number');
 //require('./alertify.config');
 
 require('./services/http.factory');

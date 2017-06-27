@@ -23,13 +23,12 @@
 
                 $scope.membro = data;
             });
-            
-            Membro.obterFuncoes().then(function (data) {
-               
-                $scope.funcoes = data;
-            });
         }
 
+        Membro.obterFuncoes().then(function (data) {
+
+            $scope.funcoes = data;
+        });
 
 
         $scope.novo = function () {
@@ -48,7 +47,6 @@
         };
 
         $scope.salvar = function () {
-
 
             Membro.inserir($scope.membro).then(function (data) {
 

@@ -7,21 +7,21 @@ MembroRoute.$inject = ['$stateProvider'];
 function MembroRoute($stateProvider) {
 
     $stateProvider.state('membro-novo',{
-        name: '/membro/novo',
+        url: '/membro/novo',
         controller: 'MembroFormController',
-        templateUrl: 'membro/membro.html',
+        templateUrl: 'membro/membro.form.html',
         authorize:true
         
     }).state('membro-editar', {
         url: '/membro/:id',
         controller: 'MembroFormController',
-        templateUrl: 'membro/membro.html',
+        templateUrl: 'membro/membro.form.html',
         authorize:true
         
     }).state('membro', {
         url: '/membro',
         controller: 'MembroController',
-        templateUrl: 'membro/membro.lista.html',
+        templateUrl: 'membro/membro.html',
         authorize:true        
     });
 }
