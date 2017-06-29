@@ -1,6 +1,7 @@
 // npm
 $ = jQuery = require('jquery');
 require('bootstrap');
+require('bootstrap-material-design');
 //require('bootbox');
 _ = require('lodash');
     //require('bootstrap-datepicker');
