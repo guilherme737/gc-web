@@ -28,7 +28,7 @@
 
                 console.log(result);
 
-                if (result) {
+                if (result && result.success) {
                     $location.path('/');
 
                     LoginService.setToken(result.token);

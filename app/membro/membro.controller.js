@@ -12,14 +12,18 @@
         });
         
         $scope.novo = function () {
-
             $state.go('membro-novo');
         };
 
-        $scope.editar = function (id) {
-            
+        $scope.editar = function (id) {            
             $state.go('membro-editar', {"id": id});
         };
+
+        $scope.excluir = function (id) {
+            Membro.excluir(id).then(function () {
+                
+            });
+        }
 
         
 

@@ -51,7 +51,10 @@ function AppRoute($stateProvider, $urlRouterProvider, $httpProvider) {
 
                     HttpService.popRequest();
 
-                    if (response.status === 502) {
+                    if (response.status <= 0) {
+                        //Erro de conexao...
+                        console.log('Erro de conexao com o servidor.');
+                    } else if (response.status === 502) {
                         //Flash.create('danger', 'Servidor indisponível no momento!');
 
                     } else if (response.status !== 401) {
@@ -59,8 +62,7 @@ function AppRoute($stateProvider, $urlRouterProvider, $httpProvider) {
 
                     } else if (response.status === 401 || response.status === 403) {
                         $location.path('/login');
-
-                    }
+                    } 
 
                     return $q.reject(response);
                 }

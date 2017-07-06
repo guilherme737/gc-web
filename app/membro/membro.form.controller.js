@@ -26,8 +26,11 @@
         }
 
         Membro.obterFuncoes().then(function (data) {
-
             $scope.funcoes = data;
+        });
+
+        Membro.obterPastores().then(function (data) {
+            $scope.pastores = data;
         });
 
 
@@ -48,12 +51,25 @@
 
         $scope.salvar = function () {
 
-            Membro.inserir($scope.membro).then(function (data) {
+            if ($scope.membro.id > 0) {
 
-                if (!data.message) {
+                Membro.atualizar($scope.membro, $scope.membro.id).then(function (data) {
 
-                }
-            });
+                    if (!data.message) {
+                        
+                    }
+                });    
+
+            } else {
+                Membro.inserir($scope.membro).then(function (data) {
+
+                    if (!data.message) {
+                        
+                    }
+                });    
+            }
+
+            
         };
 
         $scope.voltar = function () {
