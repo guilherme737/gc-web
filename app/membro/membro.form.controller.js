@@ -33,6 +33,22 @@
             $scope.pastores = data;
         });
 
+        $scope.obterDiscipuladoresPorPastor = function () {
+            Membro.obterDiscipuladoresPorPastor($scope.membro.pastor).then(function(data) {
+                $scope.discipuladores = data;
+            });     
+        };
+
+        $scope.obterLideresPorDiscipulador = function () {
+            Membro.obterLideresPorDiscipulador($scope.membro.discipulador).then(function(data){
+                $scope.lideres = data;
+            });     
+        };
+
+        
+            
+        
+
 
         $scope.novo = function () {
 
