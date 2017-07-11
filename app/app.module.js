@@ -11,7 +11,8 @@ angular.module('app', [
     'app.login',
     'app.home',
     'app.membro',
-    'app.celula'
+    'app.celula',
+    'app.frequencia-celula'
 ]);
 
 require('./app.config');

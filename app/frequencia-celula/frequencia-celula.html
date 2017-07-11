@@ -1,0 +1,70 @@
+<div class="panel panel-default">
+  <div class="panel-body">
+
+<fieldset>
+    <legend>Frequencia Célula</legend>
+
+    <div class="row">
+
+        <div class="col-md-6 form-group">
+            <label >Nome</label>
+            <div class="form-inline">            
+                <input type="text" class="form-control" ng-model="filtro.nomeResponsavel" maxlength="150"/>
+                <button class="btn btn-primary" type="button" ng-click="consultar()">Consultar</button>
+            </div>            
+
+        </div>
+        
+        
+
+    </div>
+    <div class="row">
+        <div class="col-md-12 form-group">
+            <button class="btn btn-primary pull-right" type="button" ng-click="novo()"><i class="fa fa-file"></i> Novo</button>
+        </div>        
+    </div>
+</fieldset>
+
+<hr>
+
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th width="10%">Ano</th>
+                <th width="10%">Mes</th>
+                <th width="10%">Semana</th>
+                <th width="10%">Membros + FA</th>
+                <th width="10%">Visitantes</th>
+                <th width="10%">Culto</th>                
+                <th colspan="2" width="10%">Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="frequencia in frequencias">
+                <td>{{ frequencia.ano}}</td>
+                <td>{{ frequencia.mes}}</td>
+                <td>{{ frequencia.semana}}</td>
+                <td>{{ frequencia.membros}}</td>
+                <td>{{ frequencia.visitantes}}</td>
+                <td>{{ frequencia.culto}}</td>
+                <td>
+                    <a href="#" class="text-primary" ng-click="editar(frequencia.id)">
+                        <span class="glyphicon glyphicon-pencil"></span> Editar
+                    </a>                    
+                </td>
+                <td>
+                    <a href="#" class="text-danger" ng-click="excluir(frequencia.id)">
+                        <span class="glyphicon glyphicon-pencil"></span> Excluir
+                    </a>                    
+                </td>
+            </tr>
+            <tr ng-if="!!frequencia.length">
+                <td colspan="9">
+                    <span>Nenhum registro encontrado!</span>
+                </td>
+            </tr>
+        </tbody>        
+    </table>
+</div>
+</div></div>

@@ -1,0 +1,83 @@
+(function () {
+    'use strict';
+
+    angular.module('app.frequencia-celula').controller('FrequenciaCelulaFormController', FrequenciaCelulaFormController);
+
+    FrequenciaCelulaFormController.$inject = ['$scope', '$state', '$stateParams', '$log', 'FrequenciaCelulaService'];
+    /* @ngInject */
+    function FrequenciaCelulaFormController($scope, $state, $stateParams, $log, FrequenciaCelula) {
+
+        var id = $stateParams.id;
+
+        if (!id) {
+            $scope.frequencia = {
+                lider: null,
+                membros: [],
+                visitantes: null,
+                culto: null,
+            };
+
+        } else {
+
+            FrequenciaCelula.obterPorId(id).then(function (data) {
+                $scope.membro = data;
+            });
+        }
+
+        $scope.obterMembrosCelula = function () {
+            Membro.obterLideresPorDiscipulador($scope.membro.discipulador).then(function(data){
+                $scope.lideres = data;
+            });     
+        };
+
+        $scope.novo = function () {
+
+            $state.go('frequencia-celula-novo');
+        };
+
+        $scope.editar = function (id) {
+
+            FrequenciaCelula.obterPorId(id).then(function (data) {
+
+                $scope.frequencia = data;
+            });
+
+            $state.go('frequencia-celula-editar', {"id": id});
+        };
+
+        $scope.salvar = function () {
+
+            if ($scope.frequencia.id > 0) {
+
+                FrequenciaCelula.atualizar($scope.frequencia, $scope.frequencia.id).then(function (data) {
+
+                    if (!data.message) {
+                        
+                    }
+                });    
+
+            } else {
+                FrequenciaCelula.inserir($scope.frequencia).then(function (data) {
+
+                    if (!data.message) {
+                        
+                    }
+                });    
+            }
+
+            
+        };
+
+        $scope.voltar = function () {
+            $state.go('frequencia');
+        };
+
+
+        /*
+         Membro.obterTodos().then(function (membros) {
+         $scope.membros = membros;
+         });
+         */
+
+    }
+})();
