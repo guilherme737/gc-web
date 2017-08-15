@@ -11,7 +11,7 @@
                 </div>
             </div>
             <div class="col-md-9">
-                
+
                 <div class="row">
                     <div class="form-group col-md-9 col-xs-12">
                         <label>Líder</label>
@@ -23,29 +23,30 @@
                     <table class="table table-striped">
                         <thead>
                             <tr>
-                                <th width="44%">Nome</th>                                
-                                <th width="10%">Telefone</th>                
+                                <th width="44%">Nome</th>
+                                <th width="10%">Telefone</th>
                                 <th colspan="2" width="10%">Ações</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr ng-repeat="membros in membros">
-                                <td>{{ membro.nome}}</td>                                
-                                <td>{{ membro.celular}}</td>                                                
+                            <tr ng-repeat="membro in membros">
+                                <td>{{ membro.nome}}</td>
+                                <td>{{ membro.celular}}</td>
+                                <td><input type="checkbox" ng-model="membro.presente"></td>
                             </tr>
                             <tr ng-if="!!membro.length">
                                 <td colspan="9">
                                     <span>Nenhum registro encontrado!</span>
                                 </td>
                             </tr>
-                        </tbody>        
+                        </tbody>
                     </table>
                 </div>
-                
+
                 <br/>
-                
+
             </div>
-            <div class="col-md-2" style="border-left: dashed 1px #cccccc">        
+            <div class="col-md-2" style="border-left: dashed 1px #cccccc">
                 <button class="btn btn-primary col-md-12" ng-click="salvar()" >Gravar</button>
                 <button class="btn btn-default col-md-12" ng-click="voltar()" >Voltar</button>
             </div>

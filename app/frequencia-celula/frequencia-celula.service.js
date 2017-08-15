@@ -11,10 +11,11 @@ function FrequenciaCelulaService($http, $rootScope, localStorageService, GCConst
         inserir: inserir,
         atualizar : atualizar,
         obterTodos: obterTodos,
-        obterPorId: obterPorId,        
-        
+        obterPorId: obterPorId,
+        obterMembrosPorLider:obterMembrosPorLider
+
     };
-    
+
     var FUNCIONALIDADE = 'frequencia-celula';
 
     function inserir(celula) {
@@ -33,11 +34,15 @@ function FrequenciaCelulaService($http, $rootScope, localStorageService, GCConst
     }
 
     function atualizar(celula, id) {
-        
-        return $http.put(GCConstants.BASE.API + FUNCIONALIDADE + '/' + id).then(handleSuccess, handleError('Erro ao atualizar o registro'));
 
+        return $http.put(GCConstants.BASE.API + FUNCIONALIDADE + '/' + id).then(handleSuccess, handleError('Erro ao atualizar o registro'));
     }
-    
+
+    function obterMembrosPorLider(id) {
+
+        return $http.get(GCConstants.BASE.API + FUNCIONALIDADE + '/frequencia-membros-por-lider/' + id).then(handleSuccess, handleError('Erro ao obter membros'));
+    }
+
     function handleSuccess(res) {
 
         return res.data;

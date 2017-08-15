@@ -22,12 +22,16 @@
             FrequenciaCelula.obterPorId(id).then(function (data) {
                 $scope.membro = data;
             });
+
+            FrequenciaCelula.obterMembrosPorLider(id).then(function (data) {
+                $scope.membros = data;
+            });
         }
 
         $scope.obterMembrosCelula = function () {
             Membro.obterLideresPorDiscipulador($scope.membro.discipulador).then(function(data){
                 $scope.lideres = data;
-            });     
+            });
         };
 
         $scope.novo = function () {
@@ -52,20 +56,20 @@
                 FrequenciaCelula.atualizar($scope.frequencia, $scope.frequencia.id).then(function (data) {
 
                     if (!data.message) {
-                        
+
                     }
-                });    
+                });
 
             } else {
                 FrequenciaCelula.inserir($scope.frequencia).then(function (data) {
 
                     if (!data.message) {
-                        
+
                     }
-                });    
+                });
             }
 
-            
+
         };
 
         $scope.voltar = function () {
