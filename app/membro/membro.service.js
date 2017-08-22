@@ -16,7 +16,8 @@ function MembroService($http, $rootScope, localStorageService, GCConstants) {
         obterFuncoes: obterFuncoes,
         obterPastores: obterPastores,
         obterDiscipuladoresPorPastor: obterDiscipuladoresPorPastor,
-        obterLideresPorDiscipulador: obterLideresPorDiscipulador
+        obterLideresPorDiscipulador: obterLideresPorDiscipulador,
+        obterMembrosPorLider: obterMembrosPorLider
 
 
     };
@@ -55,6 +56,10 @@ function MembroService($http, $rootScope, localStorageService, GCConstants) {
 
     function obterLideresPorDiscipulador(id) {     
         return $http.get(GCConstants.BASE.API + 'membro-lideres-por-discipulador/' + id).then(handleSuccess, handleError('Erro ao obter líderes.'));
+    }
+    
+    function obterMembrosPorLider(id) {     
+        return $http.get(GCConstants.BASE.API + 'membro/membros-por-lider/' + id).then(handleSuccess, handleError('Erro ao obter líderes.'));
     }
 
     function handleSuccess(res) {

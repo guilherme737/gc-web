@@ -23,19 +23,28 @@
                     <table class="table table-striped">
                         <thead>
                             <tr>
-                                <th width="44%">Nome</th>
+                                <th width="5%">Presente</th>
+                                <th width="85%">Nome</th>
                                 <th width="10%">Telefone</th>
-                                <th colspan="2" width="10%">Ações</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr ng-repeat="membro in membros">
+                                <td class="text-center">
+                                    <div class="checkbox">
+                                        <label>
+                                          <input type="checkbox" ng-model="membro.presente">
+                                          <span class="checkbox-material">
+                                              <span class="check"></span>                                                  
+                                          </span>
+                                        </label>                                        
+                                    </div>                                    
+                                </td>
                                 <td>{{ membro.nome}}</td>
-                                <td>{{ membro.celular}}</td>
-                                <td><input type="checkbox" ng-model="membro.presente"></td>
+                                <td>{{ membro.celular}}</td>                                
                             </tr>
                             <tr ng-if="!!membro.length">
-                                <td colspan="9">
+                                <td colspan="3">
                                     <span>Nenhum registro encontrado!</span>
                                 </td>
                             </tr>

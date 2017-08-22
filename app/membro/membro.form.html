@@ -1,25 +1,65 @@
 <div class="panel">
-<div class="panel-body">
-<div class="row">
-    <div class="col-md-12">
+    <div class="panel-body">
         <div class="row">
-            <div class="col-md-6">
-                <h1>Cadastro de Membros</h1>
-                <small>Sign in input above or register</small>
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h1>Cadastro de Membros</h1>
+                        <small>Sign in input above or register</small>
+                    </div>
+                    <br/><br/>
+                </div>
             </div>
-            <br/><br/>
-        </div>
-    </div>
-    <div class="col-md-9">
-        
-        <div class="row">
-            <div class="form-group col-md-9 col-xs-12">
-                <label>Nome</label>
-                <input type="text" class="form-control" ng-model="membro.nome" maxlength="100"/>
-            </div>
+            <div class="col-md-9">
 
-            <div class="form-group col-md-3 col-xs-12">
-                <label>Data Nascimento</label>
+                <div class="row">
+                    <div class="form-group col-md-9 col-xs-12">
+                        <label>Nome</label>
+                        <input type="text" class="form-control" ng-model="membro.nome" maxlength="100"/>
+                    </div>
+
+                    <div class="form-group col-md-3 col-xs-12">
+                        <label>Data Nascimento</label>
+                        <input type="text" class="form-control" ng-model="membro.dataNascimento" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-9 col-xs-12">
+                        <label>E-Mail</label>
+                        <input type="text" class="form-control" ng-model="membro.email" />
+                    </div>
+                    <div class="form-group col-md-3 col-xs-12">
+                        <label class="control-label">Telefone</label>
+                        <input type="text" class="form-control" ng-model="membro.telefone" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label class="control-label">Função</label>
+                        <select ng-model="membro.funcao" class="form-control" convert-to-number>                    
+                            <option ng-repeat="funcao in funcoes" value="{{funcao.id}}">{{funcao.descricao}}</option>
+                        </select>                
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="control-label">Pastor</label>
+                        <select ng-model="membro.pastor" class="form-control" convert-to-number>                    
+                            <option ng-repeat="pastor in pastores" value="{{pastor.id}}">{{pastor.nome}}</option>
+                        </select>                
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <label class="control-label">Dizimista</label>
+                        <input type="checkbox" ng-model="membro.dizimista">
+                    </div>
+                </div>
+                <pre>
+            {{membro|json}}
+                </pre>
+                <br/>
+
                 <input type="text" class="form-control" ng-model="membro.dataNascimento" />
             </div>
         </div>

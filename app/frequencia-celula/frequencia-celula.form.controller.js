@@ -3,9 +3,9 @@
 
     angular.module('app.frequencia-celula').controller('FrequenciaCelulaFormController', FrequenciaCelulaFormController);
 
-    FrequenciaCelulaFormController.$inject = ['$scope', '$state', '$stateParams', '$log', 'FrequenciaCelulaService'];
+    FrequenciaCelulaFormController.$inject = ['$scope', '$state', '$stateParams', '$log', 'FrequenciaCelulaService', 'MembroService'];
     /* @ngInject */
-    function FrequenciaCelulaFormController($scope, $state, $stateParams, $log, FrequenciaCelula) {
+    function FrequenciaCelulaFormController($scope, $state, $stateParams, $log, FrequenciaCelula, Membro) {
 
         var id = $stateParams.id;
 
@@ -16,15 +16,17 @@
                 visitantes: null,
                 culto: null,
             };
+            
+            var liderId = 2;
+
+            Membro.obterMembrosPorLider(liderId).then(function (data) {
+                $scope.membros = data;
+            });
 
         } else {
 
             FrequenciaCelula.obterPorId(id).then(function (data) {
                 $scope.membro = data;
-            });
-
-            FrequenciaCelula.obterMembrosPorLider(id).then(function (data) {
-                $scope.membros = data;
             });
         }
 
