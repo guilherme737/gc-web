@@ -36,16 +36,16 @@
                 <div class="row">
                     <div class="col-md-6">
                         <label class="control-label">Função</label>
-                        <select ng-model="membro.funcao" class="form-control" convert-to-number>                    
+                        <select ng-model="membro.funcao" class="form-control" convert-to-number>
                             <option ng-repeat="funcao in funcoes" value="{{funcao.id}}">{{funcao.descricao}}</option>
-                        </select>                
+                        </select>
                     </div>
 
                     <div class="col-md-6">
                         <label class="control-label">Pastor</label>
-                        <select ng-model="membro.pastor" class="form-control" convert-to-number>                    
+                        <select ng-model="membro.pastor" class="form-control" convert-to-number>
                             <option ng-repeat="pastor in pastores" value="{{pastor.id}}">{{pastor.nome}}</option>
-                        </select>                
+                        </select>
                     </div>
                 </div>
 
@@ -60,66 +60,12 @@
                 </pre>
                 <br/>
 
-                <input type="text" class="form-control" ng-model="membro.dataNascimento" />
-            </div>
-        </div>
-        <div class="row">
-            <div class="form-group col-md-9 col-xs-12">
-                <label>E-Mail</label>
-                <input type="text" class="form-control" ng-model="membro.email" />
-            </div>
-            <div class="form-group col-md-3 col-xs-12">
-                <label class="control-label">Telefone</label>
-                <input type="text" class="form-control" ng-model="membro.telefone" />
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6">
-                <label class="control-label">Função</label>
-                <select ng-model="membro.funcao" class="form-control" convert-to-number>                    
-                    <option ng-repeat="funcao in funcoes" value="{{funcao.id}}">{{funcao.descricao}}</option>
-                </select>                
-            </div>
-       
-            <div class="col-md-6">
-                <label class="control-label">Pastor</label>
-                <select ng-model="membro.pastor" class="form-control" convert-to-number ng-change="obterDiscipuladoresPorPastor();">                    
-                    <option ng-repeat="pastor in pastores" value="{{pastor.id}}">{{pastor.nome}}</option>
-                </select>                
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6">
-                <label class="control-label">Discipulador</label>
-                <select ng-model="membro.discipulador" class="form-control" convert-to-number ng-change="obterLideresPorDiscipulador();">                    
-                    <option ng-repeat="discipulador in discipuladores" value="{{discipulador.id}}">{{discipulador.nome}}</option>
-                </select> 
-            </div>
-            <div class="col-md-6">
-                <label class="control-label">L&iacute;der</label>
-                <select ng-model="membro.lider" class="form-control" convert-to-number>                    
-                    <option ng-repeat="lider in lideres" value="{{lider.id}}">{{lider.nome}}</option>
-                </select> 
-            </div>
-        </div>
 
-        
-        <div class="row">
-            <div class="col-md-6">
-                <label class="control-label">Dizimista</label>
-                <input type="checkbox" ng-model="membro.dizimista">
+            </div>
+            <div class="col-md-2" style="border-left: dashed 1px #cccccc">
+                <button class="btn btn-primary col-md-12" ng-click="salvar()" >Gravar</button>
+                <button class="btn btn-default col-md-12" ng-click="voltar()" >Voltar</button>
             </div>
         </div>
-        <pre>
-            {{membro|json}}
-        </pre>
-        <br/>
-        
-    </div>
-    <div class="col-md-2" style="border-left: dashed 1px #cccccc">        
-        <button class="btn btn-primary col-md-12" ng-click="salvar()" >Gravar</button>
-        <button class="btn btn-default col-md-12" ng-click="voltar()" >Voltar</button>
-    </div>
-</div>
-</div>
+    </div>    
 </div>
