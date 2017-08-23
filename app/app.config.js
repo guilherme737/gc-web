@@ -6,7 +6,13 @@ AppRoute.$inject = ['$stateProvider', '$urlRouterProvider', '$httpProvider'];
 /* @ngInject */
 function AppRoute($stateProvider, $urlRouterProvider, $httpProvider) {
 
-    //$urlRouterProvider.otherwise('/home');
+
+    //$urlRouterProvider.when('/dashboard', '/dashboard/overview');
+    $urlRouterProvider.otherwise('/home');
+
+
+
+
 
     $httpProvider.interceptors.push(['$q', 'HttpService', 'localStorageService', '$location',
         function ($q, HttpService, $localStorage, $location) {
@@ -62,7 +68,7 @@ function AppRoute($stateProvider, $urlRouterProvider, $httpProvider) {
 
                     } else if (response.status === 401 || response.status === 403) {
                         $location.path('/login');
-                    } 
+                    }
 
                     return $q.reject(response);
                 }
