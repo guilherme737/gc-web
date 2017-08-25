@@ -6,6 +6,7 @@ LoginService.$inject = ['$http', 'localStorageService', '$q', 'GCConstants'];
 /* @ngInject */
 
 function LoginService ($http, $localStorageService, $q, GCConstants) {
+
     return {
 
         getToken : function () {
@@ -14,7 +15,21 @@ function LoginService ($http, $localStorageService, $q, GCConstants) {
 
         setToken: function (token) {
           //$localStorageService.token = token;
-          $localStorageService.set('token', token);
+            $localStorageService.set('token', token);
+        },
+
+        setUsuario: function (id, nome, funcao) {
+            var usuario = {
+                id: id,
+                nome: nome,
+                funcao: funcao
+            }
+
+            $localStorageService.set('usuario', usuario);
+        },
+
+        getUsuario: function () {
+            return $localStorageService.get('usuario');
         },
 
         login : function (data) {
@@ -26,10 +41,6 @@ function LoginService ($http, $localStorageService, $q, GCConstants) {
                 data: data
 
             }).then(handleSuccess, handleError('Erro ao efetuar o login. Tente novamente.'));
-        },
-
-        signup : function (data) {
-          $http.post('api/signup', data);
         },
 
         logout : function (data) {

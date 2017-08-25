@@ -4,7 +4,7 @@
     angular.module('app.login').controller('LoginController', LoginController);
 
     function LoginController($location, LoginService) {
-        
+
         var vm = this;
 
         vm.login = login;
@@ -32,10 +32,12 @@
                     $location.path('/');
 
                     LoginService.setToken(result.token);
+                    LoginService.setUsuario(result.id, result.user, result.funcao);
+
                     vm.loading = false;
 
                 } else {
-                    vm.error = 'Username or password is incorrect';
+                    vm.error = 'Usuário ou senha está incorreto.';
                     vm.loading = false;
                 }
             });
