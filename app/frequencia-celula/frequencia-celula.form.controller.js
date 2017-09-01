@@ -11,13 +11,13 @@
 
         if (!id) {
             $scope.frequencia = {
-                lider: null,
+                celula_id: 1,
                 membros: [],
                 visitantes: null,
                 culto: null,
             };
-            
-            var liderId = 2;
+
+            var liderId = 5;
 
             Membro.obterMembrosPorLider(liderId).then(function (data) {
                 $scope.membros = data;
@@ -63,6 +63,9 @@
                 });
 
             } else {
+
+                $scope.frequencia.membros = $scope.membros;
+
                 FrequenciaCelula.inserir($scope.frequencia).then(function (data) {
 
                     if (!data.message) {
