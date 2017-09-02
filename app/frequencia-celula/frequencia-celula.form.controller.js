@@ -63,13 +63,13 @@
                 });
 
             } else {
-
+                
                 $scope.frequencia.membros = $scope.membros;
-
+                
                 FrequenciaCelula.inserir($scope.frequencia).then(function (data) {
 
                     if (!data.message) {
-
+                        
                     }
                 });
             }
