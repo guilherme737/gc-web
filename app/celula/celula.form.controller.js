@@ -8,6 +8,17 @@
     function CelulaFormController($scope, $state, $stateParams, $log, Celula, Membro) {
 
         var id = $stateParams.id;
+        
+        
+        $scope.diasSemana = [
+            {id: 1, descricao:"Domingo"},
+            {id: 2, descricao:"Segunda"},
+            {id: 3, descricao:"Terça"},
+            {id: 4, descricao:"Quarta"},
+            {id: 5, descricao:"Quinta"},
+            {id: 6, descricao:"Sexta"},
+            {id: 7, descricao:"Sábado"},
+        ];
 
         if (!id) {
             $scope.registro = {

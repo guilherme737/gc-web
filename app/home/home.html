@@ -18,31 +18,32 @@
                     <ul class="dropdown-menu">
                         <li><a ui-sref="membro">Membros</a></li>
                         <li><a ui-sref="celula">Célula</a></li>
+                        <!--
                         <li><a href="#">Something else here</a></li>
                         <li role="separator" class="divider"></li>
                         <li class="dropdown-header">Nav header</li>
                         <li><a href="#">Separated link</a></li>
+                        -->
                     </ul>
                 </li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Lançamentos <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a ui-sref="frequencia-celula">Frenquencia da Célula</a></li>
+                        <li><a ui-sref="frequencia-celula">Frequ&ecirc;ncia da C&eacute;lula</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Relátórios <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Frenquencia Por M&ecirc;s</a></li>
+                        <li><a href="#">Frequ&ecirc;ncia Por M&ecirc;s</a></li>
                         <li><a href="#">Gráficos de Frequ&ecirc;ncia</a></li>
                     </ul>
                 </li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Gráficos</a></li>
+                
+                <!--<li><a href="#contact">Gráficos</a></li>-->
 
             </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">Default</a></li>
+            <ul class="nav navbar-nav navbar-right">                
                 <li><a href="#">{{usuario.nome}}</a></li>
                 <li class="active"><a ui-sref="login">Logout <span class="sr-only">(current)</span></a></li>
             </ul>
@@ -52,6 +53,7 @@
 
 <div class="container" >
     <!-- https://github.com/start-angular/ani-theme/blob/master/app/views/dashboard.html -->
+    <br><br><br>
     <ui-view></ui-view>
 </div>
 

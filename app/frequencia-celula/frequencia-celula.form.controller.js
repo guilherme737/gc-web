@@ -8,16 +8,26 @@
     function FrequenciaCelulaFormController($scope, $state, $stateParams, $log, FrequenciaCelula, Membro) {
 
         var id = $stateParams.id;
+        
+        $scope.semanas = [
+            {id: 1, descricao: "1ª Semana"},
+            {id: 1, descricao: "2ª Semana"},
+            {id: 1, descricao: "3ª Semana"},
+            {id: 1, descricao: "4ª Semana"},
+            {id: 1, descricao: "5ª Semana"}
+        ];
+        
 
         if (!id) {
             $scope.frequencia = {
                 celula_id: 1,
+                semana: null,
                 membros: [],
                 visitantes: null,
                 culto: null,
             };
 
-            var liderId = 5;
+            var liderId = 2;
 
             Membro.obterMembrosPorLider(liderId).then(function (data) {
                 $scope.membros = data;

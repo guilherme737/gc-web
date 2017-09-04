@@ -7,97 +7,101 @@
             <br/><br/>
         </div>
     </div>
-    <div class="col-md-9">
-        
+</div>
+<div class="panel">
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-10">
+                <div class="row">
+                    <div class="form-group col-md-9 col-xs-12">
+                        <label class="control-label">Nome</label>
+                        <input type="text" class="form-control" ng-model="registro.nome" maxlength="100"/>
+                    </div>
 
-        <div class="row">
-            <div class="form-group col-md-9 col-xs-12">
-                <label>Nome</label>
-                <input type="text" class="form-control" ng-model="registro.nome" maxlength="100"/>
-            </div>
+                    <div class="form-group col-md-3 col-xs-12">
+                        <label class="control-label">Data In&iacute;cio</label>
+                        <input type="text" class="form-control" ng-model="registro.dataInicio" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-6 col-xs-12">
+                        <label class="control-label">L&iacute;der</label>
+                        <select ng-model="registro.lider" class="form-control" convert-to-number>                    
+                            <option ng-repeat="membro in membros" value="{{membro.id}}">{{membro.nome}}</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-6 col-xs-12">
+                        <label class="control-label">Anfitri&atilde;o</label>
+                        <select ng-model="registro.anfitriao" class="form-control" convert-to-number>                    
+                            <option ng-repeat="membro in membros" value="{{membro.id}}">{{membro.nome}}</option>
+                        </select>                
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-12 col-xs-12">
+                        <label class="control-label">Endere&ccedil;o</label>
+                        <input type="text" class="form-control" ng-model="registro.lider" />
+                    </div>
+                    <div class="form-group col-md-9 col-xs-12">
+                        <label class="control-label">Cidade</label>
+                        <input type="text" class="form-control" ng-model="registro.cidade" />
+                    </div>
+                    <div class="form-group col-md-3 col-xs-12">
+                        <label class="control-label">UF</label>
+                        <select ng-model="registro.uf" class="form-control" 
+                                ng-options="uf for uf in estados">                                        
+                        </select>                
+                    </div>
 
-            <div class="form-group col-md-3 col-xs-12">
-                <label>Data In&iacute;cio</label>
-                <input type="text" class="form-control" ng-model="registro.dataInicio" />
+                </div>
+                <fieldset>
+                    <legend>Adicionar Membro</legend>
+                </fieldset>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label class="control-label">Membro</label>
+                        <select ng-model="membroCelula" class="form-control" 
+                                ng-options="membro as membro.nome for membro in membros">                    
+
+                        </select>                
+                    </div>
+                    <div class="col-md-1">
+                        <label class="control-label">&nbsp;</label>
+                        <button class="btn btn-primary" ng-click="addMembro(membroCelula)" ><i class="fa fa-plus"></i></button>
+                    </div>
+                </div>
+                <br/>
+                <div class="row">
+                    <div class="col-md-12">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Membro</th>
+                                    <th>Telefone</th>
+                                    <th>Data Nasc.</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="membro in registro.membros">
+                                    <td>{{membro.nome}}</td>
+                                    <td>{{membro.celular}}</td>
+                                    <td>{{membro.dataNascimento}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+
+
+
+                <br/>
+
+            </div>
+            <div class="col-md-2" style="border-left: dashed 1px #cccccc">        
+                <button class="btn btn-primary col-md-12" ng-click="salvar()" >Gravar</button>
+                <button class="btn btn-default col-md-12" ng-click="voltar()" >Voltar</button>
             </div>
         </div>
-        <div class="row">
-            <div class="form-group col-md-6 col-xs-12">
-                <label>L&iacute;der</label>
-                <select ng-model="registro.lider" class="form-control" convert-to-number>                    
-                    <option ng-repeat="membro in membros" value="{{membro.id}}">{{membro.nome}}</option>
-                </select>
-            </div>
-            <div class="form-group col-md-6 col-xs-12">
-                <label class="control-label">Anfitri&atilde;o</label>
-                <select ng-model="registro.anfitriao" class="form-control" convert-to-number>                    
-                    <option ng-repeat="membro in membros" value="{{membro.id}}">{{membro.nome}}</option>
-                </select>                
-            </div>
-        </div>
-        <div class="row">
-            <div class="form-group col-md-12 col-xs-12">
-                <label>Endere&ccedil;o</label>
-                <input type="text" class="form-control" ng-model="registro.lider" />
-            </div>
-            <div class="form-group col-md-9 col-xs-12">
-                <label class="control-label">Cidade</label>
-                <input type="text" class="form-control" ng-model="registro.cidade" />
-            </div>
-            <div class="form-group col-md-3 col-xs-12">
-                <label class="control-label">UF</label>
-                <select ng-model="registro.uf" class="form-control" 
-                        ng-options="uf for uf in estados">                                        
-                </select>                
-            </div>
-            
-        </div>
-        <fieldset>
-            <legend>Adicionar Membro</legend>
-        </fieldset>
-        <div class="row">
-            <div class="col-md-6">
-                <label class="control-label">Membro</label>
-                <select ng-model="membroCelula" class="form-control" 
-                        ng-options="membro as membro.nome for membro in membros">                    
-                    
-                </select>                
-            </div>
-            <div class="col-md-1">
-                <label class="control-label">&nbsp;</label>
-                <button class="btn btn-primary" ng-click="addMembro(membroCelula)" ><i class="fa fa-plus"></i></button>
-            </div>
-        </div>
-        <br/>
-        <div class="row">
-            <div class="col-md-12">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>Membro</th>
-                            <th>Telefone</th>
-                            <th>Data Nasc.</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr ng-repeat="membro in registro.membros">
-                            <td>{{membro.nome}}</td>
-                            <td>{{membro.celular}}</td>
-                            <td>{{membro.dataNascimento}}</td>
-                        </tr>
-                    </tbody>
-                </table>
-                
-            </div>
-        </div>
-        
-     
-        
-        <br/>
-        
-    </div>
-    <div class="col-md-2" style="border-left: dashed 1px #cccccc">        
-        <button class="btn btn-primary col-md-12" ng-click="salvar()" >Gravar</button>
-        <button class="btn btn-default col-md-12" ng-click="voltar()" >Voltar</button>
     </div>
 </div>
